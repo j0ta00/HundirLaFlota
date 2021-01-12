@@ -45,7 +45,7 @@ public class Barco {
 	 * Postcondición:Se trata de un procedimiento que resta el tamaño del atributo barco
 	 * */
 	public void perderTrozoDeBarco(){
-		setTamano(getTamano()-1);
+		setTamano(tamano--);
 	}
 
 }
