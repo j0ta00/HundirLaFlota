@@ -1,4 +1,7 @@
 package main;
+
+import tablero.Tablero;
+
 /*
  * CLASES: BARCO: -TAMAÑO: ARRAY DE CHAR -NOMBRE: STRING
  * TABLERO: -CASILLAS: ARRAY BIDIMENSIONAL DE CHAR
@@ -9,8 +12,9 @@ package main;
 public class Main {
 
 	public static void main(String[] args) {
+		Tablero tablero1 = new Tablero();
+		tablero1.imprimirTablero();
 		
-
 	}
 
 }
