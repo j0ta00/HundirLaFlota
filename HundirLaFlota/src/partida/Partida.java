@@ -2,6 +2,7 @@ package partida;
 
 import jugador.Bot;
 import jugador.Jugador;
+import tablero.Tablero;
 
 public class Partida {
 	//Atributos
@@ -69,6 +70,14 @@ public class Partida {
 	//set de turno
 	public void setTurno(boolean turno) {
 		this.turno = turno;
+	}
+	public void turno(){
+		
+		jugador2.getTableroPropio().colocarBarco(jugador2.getBuque());
+		atacar();
+	}
+	public void atacar(){
+		jugador1.getTableroEnemigo().colocarBomba(jugador2);
 	}
 	
 }

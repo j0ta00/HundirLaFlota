@@ -1,5 +1,6 @@
 package jugador;
 
+import barco.Barco;
 import tablero.Tablero;
 
 public class Jugador {
@@ -8,6 +9,11 @@ public class Jugador {
 	protected Tablero tableroEnemigo;
 	protected int numeroDeBarcos;
 	protected String nombre;
+	protected Barco portaAviones;//5
+	protected Barco buque;//4
+	protected Barco navio;//3
+	protected Barco velero;//3
+	protected Barco pesquero;//2
 	//Métodos constructores
 	//constructor por defecto
 	public Jugador(){
@@ -15,26 +21,20 @@ public class Jugador {
 		tableroEnemigo=new Tablero();
 		numeroDeBarcos=4;
 		nombre="";
-	}
-	//constructor por parámetros
-	public Jugador(Tablero tableroPropio,Tablero tableroEnemigo,int numeroDeBarcos,String nombre){
-		this.tableroPropio=tableroPropio;
-		this.tableroEnemigo=tableroEnemigo;
-		this.numeroDeBarcos=numeroDeBarcos;
-		this.nombre=nombre;
+		portaAviones=new Barco(5,"PortaAviones");
+		buque=new Barco(4,"Buque");
+		navio=new Barco(3,"Navio");
+		velero=new Barco(3,"Velero");
+		pesquero=new Barco(2,"Pesquero");
 	}
 	//Métodos fundamentales
 	//get de tablero propio
 	public Tablero getTableroPropio(){
-		
 		return tableroPropio;
-		
 	}
 	//get de tablero enemigo
 	public Tablero getTableroEnemigo(){
-		
 		return tableroEnemigo;
-		
 	}
 	//get numero de barcos
 	public int getNumeroDeBarcos(){
@@ -42,8 +42,23 @@ public class Jugador {
 	} 
 	//get de nombre
 	public String getNombre(){
-		
 		return nombre; 
+	}
+	//gets de los barcos
+	public Barco getPesquero() {
+		return pesquero;
+	}
+	public Barco getVelero() {
+		return velero;
+	}
+	public Barco getNavio() {
+		return navio;
+	}
+	public Barco getBuque() {
+		return buque;
+	}
+	public Barco getPortaAviones() {
+		return portaAviones;
 	}
 	//set de tablero propio
 	public void setTableroPropio(Tablero tableroPropio){
@@ -65,7 +80,20 @@ public class Jugador {
 	public void setNombre(String nombre){
 		this.nombre=nombre;
 	}
-
-
-}
-
+	//sets de los barcos
+	public void setPortaAviones(Barco portaAviones){
+		this.portaAviones=portaAviones;
+	}
+	public void setPortaPesquero(Barco pesquero){
+		this.pesquero=pesquero;
+	}
+	public void setPortaBuque(Barco buque){
+		this.buque=buque;
+	}
+	public void setPortaNavio(Barco navio){
+		this.navio=navio;
+	}
+	public void setVelero(Barco velero){
+		this.velero=velero;
+	}
+}  
