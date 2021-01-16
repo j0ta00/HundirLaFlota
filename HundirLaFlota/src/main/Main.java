@@ -17,15 +17,7 @@ public class Main {
 	public static void main(String[] args) {
 		Tablero tablero1 = new Tablero();
 		tablero1.imprimirTablero();
-		Jugador j1 = new Jugador();
 		Partida partida = new Partida();
 		partida.turno();
-		partida.getJugador2().getTableroPropio().imprimirTablero();
-		partida.getJugador1().getTableroEnemigo().imprimirTablero();
-		partida.turno();
-		partida.getJugador2().getTableroPropio().imprimirTablero();
-		partida.getJugador1().getTableroEnemigo().imprimirTablero();
 	}
-	
-
 }

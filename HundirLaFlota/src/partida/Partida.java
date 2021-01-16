@@ -1,10 +1,12 @@
 package partida;
 
+import java.util.Scanner;
+
 import jugador.Bot;
 import jugador.Jugador;
-import tablero.Tablero;
 
 public class Partida {
+	Scanner teclado= new Scanner(System.in);
 	//Atributos
 	private Jugador jugador1;
 	private Bot ia;
@@ -72,12 +74,51 @@ public class Partida {
 		this.turno = turno;
 	}
 	public void turno(){
-		
+		String nombre="";
+		System.out.println("Introduce tu nombre Jugador 1");
+		nombre=teclado.next();
+		jugador1.setNombre(nombre);
+		System.out.println("Introduce tu nombre Jugador 2");
+		nombre=teclado.next();
+		jugador2.setNombre(nombre);
+		jugador1.getTableroPropio().colocarBarco(jugador1.getBuque());
+		jugador1.getTableroPropio().colocarBarco(jugador1.getNavio());
+		jugador1.getTableroPropio().colocarBarco(jugador1.getVelero());
+		jugador1.getTableroPropio().colocarBarco(jugador1.getPortaAviones());
+		jugador1.getTableroPropio().colocarBarco(jugador1.getPesquero());
 		jugador2.getTableroPropio().colocarBarco(jugador2.getBuque());
-		atacar();
+		jugador2.getTableroPropio().colocarBarco(jugador2.getBuque());
+		jugador2.getTableroPropio().colocarBarco(jugador2.getNavio());
+		jugador2.getTableroPropio().colocarBarco(jugador2.getVelero());
+		jugador2.getTableroPropio().colocarBarco(jugador2.getPortaAviones());
+		jugador2.getTableroPropio().colocarBarco(jugador2.getPesquero());
+		while(jugador1.getNumeroDeBarcos()!=0 && jugador2.getNumeroDeBarcos()!=0){
+			jugador1.getTableroPropio().imprimirTablero();
+			jugador1.getTableroEnemigo().imprimirTablero();
+			atacar(jugador1,jugador2);
+			if(jugador2.getNumeroDeBarcos()!=0){
+				jugador2.getTableroPropio().imprimirTablero();
+				jugador2.getTableroEnemigo().imprimirTablero();
+				atacar(jugador2,jugador1);
+			}
+		}
+		if(comprobarGanador()==1){
+			System.out.println("Enhorabuena "+jugador1.getNombre()+" eres el ganador");
+		}else{
+			System.out.println("Enhorabuena "+jugador2.getNombre()+" eres el ganador");
+		}
 	}
-	public void atacar(){
-		jugador1.getTableroEnemigo().colocarBomba(jugador2);
+	private int comprobarGanador(){
+		int ganador=0;
+		if(jugador2.getNumeroDeBarcos()==0){
+			ganador=1;
+		}else if(jugador1.getNumeroDeBarcos()==0){
+			ganador=2;
+		}
+		return ganador;
+	}
+	public void atacar(Jugador jugador,Jugador enemigo){
+		jugador.getTableroEnemigo().colocarBomba(enemigo);
 	}
 	
 }

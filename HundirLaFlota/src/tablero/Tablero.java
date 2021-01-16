@@ -72,7 +72,7 @@ Scanner teclado=new Scanner(System.in);
 		colocarBarcoDeFormaOrientada(barco,ladoDeOrientacionDelBarco,posicionX,posicionY);
 	}
 	public boolean permitirOrientarBarco(Barco barco,char ladoDeOrientacionDelBarco,int posicionX, int posicionY){
-		int contador=0;
+		int contador=1;
 		boolean permitirOrientacion=false;
 		for(int i=0;i<barco.getTamano();i++){
 			switch(ladoDeOrientacionDelBarco){
@@ -104,7 +104,7 @@ Scanner teclado=new Scanner(System.in);
 	}
 	public void colocarBomba(Jugador jugador){
 		int posicionX=-1, posicionY=-1;
-		while(posicionX<0 || posicionX>9 || posicionY<0 || posicionY>9){
+		while(posicionX<0 || posicionX>9 || posicionY<0 || posicionY>9 || casilla[posicionX][ posicionY]!=' '){
 			System.out.println("Introduce la fila en la que quieres tirar la bomba, recuerda que debe ser una válida");
 			posicionX=teclado.nextInt();
 			System.out.println("Introduce la columna en la que quieres tirar la bomba, recuerda que debe ser una válida");
@@ -126,34 +126,44 @@ Scanner teclado=new Scanner(System.in);
 	public void averiguarQueBarcoHaSidoAtacado(Jugador jugador,int posicionX,int posicionY){
 		String posicionDeLaBomba=""+posicionX+posicionY;
 		boolean barcoYaAveriguado=false;
-		for(int i=0;i<jugador.getBuque().getTamano() && jugador.getBuque().getTamano()>0 && barcoYaAveriguado==false;i++){
+		for(int i=0;i<4 && jugador.getBuque().getTamano()>0 && barcoYaAveriguado==false;i++){
 			if(jugador.getBuque().getPosicion()[i].equals(posicionDeLaBomba)){
 				barcoYaAveriguado=true;
-				jugador.getBuque().perderTrozoDeBarco();
+				if(jugador.getBuque().perderTrozoDeBarco()){
+					jugador.setNumeroDeBarcos(jugador.getNumeroDeBarcos()-1);
+				}
 			}
 		}
-		for(int i=0;i<jugador.getPortaAviones().getTamano() && jugador.getPortaAviones().getTamano()>0 && barcoYaAveriguado==false;i++){
+		for(int i=0;i<5 && jugador.getPortaAviones().getTamano()>0 && barcoYaAveriguado==false;i++){
 			if(jugador.getPortaAviones().getPosicion()[i].equals(posicionDeLaBomba)){
 				barcoYaAveriguado=true;
-				jugador.getPortaAviones().perderTrozoDeBarco();
+				if(jugador.getPortaAviones().perderTrozoDeBarco()){
+					jugador.setNumeroDeBarcos(jugador.getNumeroDeBarcos()-1);
+				}
 			}
 		}
-		for(int i=0;i<jugador.getNavio().getTamano() && jugador.getNavio().getTamano()>0 && barcoYaAveriguado==false;i++){
+		for(int i=0;i<3 && jugador.getNavio().getTamano()>0 && barcoYaAveriguado==false;i++){
 			if(jugador.getNavio().getPosicion()[i].equals(posicionDeLaBomba)){
 				barcoYaAveriguado=true;
-				jugador.getNavio().perderTrozoDeBarco();
+				if(jugador.getNavio().perderTrozoDeBarco()){
+					jugador.setNumeroDeBarcos(jugador.getNumeroDeBarcos()-1);
+				}
 			}
 		}
-		for(int i=0;i<jugador.getPesquero().getTamano() && jugador.getPesquero().getTamano()>0 && barcoYaAveriguado==false;i++){
+		for(int i=0;i<2 && jugador.getPesquero().getTamano()>0 && barcoYaAveriguado==false;i++){
 			if(jugador.getPesquero().getPosicion()[i].equals(posicionDeLaBomba)){
 				barcoYaAveriguado=true;
-				jugador.getPesquero().perderTrozoDeBarco();
+				if(jugador.getPesquero().perderTrozoDeBarco()){
+					jugador.setNumeroDeBarcos(jugador.getNumeroDeBarcos()-1);
+				}
 			}
 		}
-		for(int i=0;i<jugador.getVelero().getTamano() && jugador.getVelero().getTamano()>0 && barcoYaAveriguado==false;i++){
+		for(int i=0;i<3 && jugador.getVelero().getTamano()>0 && barcoYaAveriguado==false;i++){
 			if(jugador.getVelero().getPosicion()[i].equals(posicionDeLaBomba)){
 				barcoYaAveriguado=true;
-				jugador.getVelero().perderTrozoDeBarco();
+				if(jugador.getVelero().perderTrozoDeBarco()){
+					jugador.setNumeroDeBarcos(jugador.getNumeroDeBarcos()-1);
+				}
 			}
 		}
 	}
