@@ -19,7 +19,7 @@ public class Jugador {
 	public Jugador(){
 		tableroPropio=new Tablero();
 		tableroEnemigo=new Tablero();
-		numeroDeBarcos=4;
+		numeroDeBarcos=1;
 		nombre="";
 		portaAviones=new Barco(5,"PortaAviones");
 		buque=new Barco(4,"Buque");
