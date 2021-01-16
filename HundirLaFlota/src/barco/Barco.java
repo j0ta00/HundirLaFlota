@@ -4,17 +4,20 @@ public class Barco {
 	//Declaración de variables locales
 	private int tamano;
 	private String nombre;
+	private String[] posicion;
 	//Métodos constructores
 	//Constructor por defecto
 	public Barco(){
 		tamano=4;
 		nombre="Barco";
+		posicion=new String[4];
 		
 	}
 	//Constructor por parámetros
 	public Barco(int tamano,String nombre){
 		this.tamano=tamano;
 		this.nombre=nombre;
+		posicion=new String[tamano];
 	}
 	//Métodos fundamentales
 	
@@ -27,6 +30,9 @@ public class Barco {
 		return tamano;
 		
 	}
+	public String[] getPosicion() {
+		return posicion;
+	}
 	//setNombre
 	public void setNombre(String nombre){
 		this.nombre=nombre;
@@ -36,6 +42,9 @@ public class Barco {
 	public void setTamano(int tamano){
 		this.tamano=tamano;
 	}
+	public void setPosicion(String[] posicion) {
+		this.posicion = posicion;
+	}
 	/*
 	 * Cabecera:public void perderTrozoDeBarco()
 	 * Proposito:Este método hace que el parco cuando es dañado pierda parte de su tamaño
@@ -44,8 +53,14 @@ public class Barco {
 	 * Precondición:Este método no deberá ser llamado si el tamaño del barco ya es inferior a 0
 	 * Postcondición:Se trata de un procedimiento que resta el tamaño del atributo barco
 	 * */
-	public void perderTrozoDeBarco(){
-		setTamano(tamano--);
+
+	public boolean perderTrozoDeBarco(){
+		boolean destruido=false;
+		tamano--;
+		if(tamano==0){
+			destruido=true;
+		}
+		return destruido;
 	}
 
 }
