@@ -81,27 +81,58 @@ public class Partida {
 		System.out.println("Introduce tu nombre Jugador 2");
 		nombre=teclado.next();
 		jugador2.setNombre(nombre);
-		jugador1.getTableroPropio().colocarBarco(jugador1.getBuque());
-		jugador1.getTableroPropio().colocarBarco(jugador1.getNavio());
-		jugador1.getTableroPropio().colocarBarco(jugador1.getVelero());
-		jugador1.getTableroPropio().colocarBarco(jugador1.getPortaAviones());
-		jugador1.getTableroPropio().colocarBarco(jugador1.getPesquero());
-		jugador2.getTableroPropio().colocarBarco(jugador2.getBuque());
-		jugador2.getTableroPropio().colocarBarco(jugador2.getBuque());
-		jugador2.getTableroPropio().colocarBarco(jugador2.getNavio());
-		jugador2.getTableroPropio().colocarBarco(jugador2.getVelero());
-		jugador2.getTableroPropio().colocarBarco(jugador2.getPortaAviones());
-		jugador2.getTableroPropio().colocarBarco(jugador2.getPesquero());
-		while(jugador1.getNumeroDeBarcos()!=0 && jugador2.getNumeroDeBarcos()!=0){
+		try{
+			System.out.println("Va a colocar los barcos "+jugador1.getNombre()+", "+jugador2.getNombre()+" tapate los ojos, ¡No mires!");
+			Thread.sleep(5000);
+			System.out.println("Vas a colocar el "+jugador1.getBuque().getNombre());jugador1.getTableroPropio().colocarBarco(jugador1.getBuque());
 			jugador1.getTableroPropio().imprimirTablero();
-			jugador1.getTableroEnemigo().imprimirTablero();
-			atacar(jugador1,jugador2);
-			if(jugador2.getNumeroDeBarcos()!=0){
-				jugador2.getTableroPropio().imprimirTablero();
-				jugador2.getTableroEnemigo().imprimirTablero();
-				atacar(jugador2,jugador1);
+			System.out.println("Vas a colocar el "+jugador1.getNavio().getNombre());jugador1.getTableroPropio().colocarBarco(jugador1.getNavio());
+			jugador1.getTableroPropio().imprimirTablero();
+			System.out.println("Vas a colocar el "+jugador1.getVelero().getNombre());jugador1.getTableroPropio().colocarBarco(jugador1.getVelero());
+			jugador1.getTableroPropio().imprimirTablero();
+			System.out.println("Vas a colocar el "+jugador1.getPortaAviones().getNombre());jugador1.getTableroPropio().colocarBarco(jugador1.getPortaAviones());
+			jugador1.getTableroPropio().imprimirTablero();
+			System.out.println("Vas a colocar el "+jugador1.getPesquero().getNombre());jugador1.getTableroPropio().colocarBarco(jugador1.getPesquero());
+			jugador1.getTableroPropio().imprimirTablero();
+			System.out.println("Tu turno "+jugador1.getNombre()+" de colocar ha terminado espera a ver el mensaje de que es el turno de "+jugador2.getNombre()+" para colocar y en ese punto date la vuelta y que coloque él.");
+			Thread.sleep(8000);
+			System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+			System.out.println("Va a colocar los barcos "+jugador2.getNombre()+", "+jugador1.getNombre()+" tapate los ojos, ¡No mires!");
+			Thread.sleep(5000);
+			System.out.println("Vas a colocar el "+jugador2.getBuque().getNombre());jugador2.getTableroPropio().colocarBarco(jugador2.getBuque());
+			jugador2.getTableroPropio().imprimirTablero();
+			System.out.println("Vas a colocar el "+jugador2.getNavio().getNombre());jugador2.getTableroPropio().colocarBarco(jugador2.getNavio());
+			jugador2.getTableroPropio().imprimirTablero();
+			System.out.println("Vas a colocar el "+jugador2.getVelero().getNombre());jugador2.getTableroPropio().colocarBarco(jugador2.getVelero());
+			jugador2.getTableroPropio().imprimirTablero();
+			System.out.println("Vas a colocar el "+jugador2.getPortaAviones().getNombre());jugador2.getTableroPropio().colocarBarco(jugador2.getPortaAviones());
+			jugador2.getTableroPropio().imprimirTablero();
+			System.out.println("Vas a colocar el "+jugador2.getPesquero().getNombre());jugador2.getTableroPropio().colocarBarco(jugador2.getPesquero());
+			jugador2.getTableroPropio().imprimirTablero();
+			System.out.println("Tu turno "+jugador2.getNombre()+" de colocar ha terminado espera a ver el mensaje de que es el turno de "+jugador1.getNombre()+" para lanzar una bomba.");
+			Thread.sleep(8000);
+			System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+			while(jugador1.getNumeroDeBarcos()!=0 && jugador2.getNumeroDeBarcos()!=0){
+				System.out.println("Es el turno de atacar de "+jugador1.getNombre()+", "+jugador2.getNombre()+" tapate los ojos si "+jugador1.getNombre()+" sube para revisar su tablero");
+				Thread.sleep(5000);
+				jugador1.getTableroPropio().imprimirTablero();
+				System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+				jugador1.getTableroEnemigo().imprimirTablero();
+				atacar(jugador1,jugador2);
+				Thread.sleep(5000);
+				if(jugador2.getNumeroDeBarcos()!=0){
+					System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+					System.out.println("Es el turno de atacar de "+jugador2.getNombre()+", "+jugador1.getNombre()+" tapate los ojos si "+jugador2.getNombre()+" sube para revisar su tablero");
+					Thread.sleep(5000);
+					jugador2.getTableroPropio().imprimirTablero();
+					System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+					jugador2.getTableroEnemigo().imprimirTablero();
+					atacar(jugador2,jugador1);
+					Thread.sleep(5000);
+					System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+				}
 			}
-		}
+		}catch(InterruptedException e){System.out.println("Ha sucedido un error");}
 		if(comprobarGanador()==1){
 			System.out.println("Enhorabuena "+jugador1.getNombre()+" eres el ganador");
 		}else{

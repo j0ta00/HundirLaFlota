@@ -74,7 +74,7 @@ Scanner teclado=new Scanner(System.in);
 	public boolean permitirOrientarBarco(Barco barco,char ladoDeOrientacionDelBarco,int posicionX, int posicionY){
 		int contador=1;
 		boolean permitirOrientacion=false;
-		for(int i=0;i<barco.getTamano();i++){
+		for(int i=1;i<barco.getTamano();i++){
 			switch(ladoDeOrientacionDelBarco){
 			case 'A'->posicionX--;
 			case 'B'->posicionX++;
