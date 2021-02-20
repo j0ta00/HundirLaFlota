@@ -9,23 +9,15 @@ public class Jugador {
 	protected Tablero tableroEnemigo;
 	protected int numeroDeBarcos;
 	protected String nombre;
-	protected Barco portaAviones;//5
-	protected Barco buque;//4
-	protected Barco navio;//3
-	protected Barco velero;//3
-	protected Barco pesquero;//2
+	protected Barco[] barcos;
 	//Métodos constructores
 	//constructor por defecto
-	public Jugador(){
+	public Jugador(String nombre){
 		tableroPropio=new Tablero();
 		tableroEnemigo=new Tablero();
 		numeroDeBarcos=1;
-		nombre="";
-		portaAviones=new Barco(5,"PortaAviones");
-		buque=new Barco(4,"Buque");
-		navio=new Barco(3,"Navio");
-		velero=new Barco(3,"Velero");
-		pesquero=new Barco(2,"Pesquero");
+		this.nombre=nombre;
+		barcos=new Barco[]{new Barco(5,"Portaviones"),new Barco(4,"Buque"),new Barco(3,"Navio"),new Barco(3,"Velero"),new Barco(2,"Pesquero")};
 	}
 	//Métodos fundamentales
 	//get de tablero propio
@@ -44,27 +36,12 @@ public class Jugador {
 	public String getNombre(){
 		return nombre; 
 	}
-	//gets de los barcos
-	public Barco getPesquero() {
-		return pesquero;
-	}
-	public Barco getVelero() {
-		return velero;
-	}
-	public Barco getNavio() {
-		return navio;
-	}
-	public Barco getBuque() {
-		return buque;
-	}
-	public Barco getPortaAviones() {
-		return portaAviones;
-	}
 	//set de tablero propio
 	public void setTableroPropio(Tablero tableroPropio){
-		
-		this.tableroPropio=tableroPropio;
-		
+		this.tableroPropio=tableroPropio;	
+	}
+	public Barco[] getBarcos(){
+		return barcos;
 	}
 	//set de tablero enemigo
 	public void setTableroEnemigo(Tablero tableroEnemigo){
@@ -79,21 +56,5 @@ public class Jugador {
 	//set del nombre
 	public void setNombre(String nombre){
 		this.nombre=nombre;
-	}
-	//sets de los barcos
-	public void setPortaAviones(Barco portaAviones){
-		this.portaAviones=portaAviones;
-	}
-	public void setPortaPesquero(Barco pesquero){
-		this.pesquero=pesquero;
-	}
-	public void setPortaBuque(Barco buque){
-		this.buque=buque;
-	}
-	public void setPortaNavio(Barco navio){
-		this.navio=navio;
-	}
-	public void setVelero(Barco velero){
-		this.velero=velero;
 	}
 }  

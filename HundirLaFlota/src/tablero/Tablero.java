@@ -32,6 +32,7 @@ Scanner teclado=new Scanner(System.in);
 	//Métodos adicionales
 	
 	public void imprimirTablero(){
+		System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 		System.out.println("-----------------------------------------");//Imprime cr�cteres que formar�n el tablero
         for (int i=0; i<casilla.length; i++) {//for para recorrer las filas del array
             System.out.print("| ");//Imprime cr�cteres que formar�n el tablero
@@ -123,7 +124,17 @@ Scanner teclado=new Scanner(System.in);
 			jugador.getTableroPropio().casilla[posicionX][posicionY]='~';
 		}	
 	}
+	
+	public void BarcoAtacado(Jugador jugador,int posicionX,int posicionY){
+		String posicionDeLaBomba=""+posicionX+posicionY;
+		for(int i=0;i<jugador.getBarcos().length;i++){
+			jugador.getBarcos()[i].getPosicion()==;
+		}
+		
+	}
+	@Deprecated
 	public void averiguarQueBarcoHaSidoAtacado(Jugador jugador,int posicionX,int posicionY){
+		/*
 		String posicionDeLaBomba=""+posicionX+posicionY;
 		boolean barcoYaAveriguado=false;
 		for(int i=0;i<4 && jugador.getBuque().getTamano()>0 && barcoYaAveriguado==false;i++){
@@ -166,5 +177,6 @@ Scanner teclado=new Scanner(System.in);
 				}
 			}
 		}
+		*/
 	}
 }

@@ -18,6 +18,10 @@ public class Main {
 		Tablero tablero1 = new Tablero();
 		tablero1.imprimirTablero();
 		Partida partida = new Partida();
-		partida.turno();
+		try {
+			partida.turno();
+		} catch (InterruptedException e){
+			e.printStackTrace();
+		}
 	}
 }
